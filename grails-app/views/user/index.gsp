@@ -2,39 +2,52 @@
 <html>
 <head>
     <title>User list</title>
+    <style>
+    body {
+        margin: 0;
+    }
+
+    main {
+        margin: 12px;
+    }
+    </style>
 </head>
 
 <body>
-<form id="filter">
-    <input name="userName" placeholder="User name" type="text" value="${userName ?: ""}"/>
-    <input name="pokemonName" placeholder="Pokemon name" type="text" value="${pokemonName ?: ""}"/>
-    <input name="page" type="number" value="${pageNum ?: 1}" hidden/>
-    <button type="submit">Filter</button>
-</form>
-<ul>
-    <g:each var="user" in="${userList}">
-        <li>
-            <p>${user.name} (${user.birthday.format("dd.MM.yyyy")})</p>
+<g:applyLayout name="header"/>
+<main>
+    <form id="filter">
+        <input name="userName" placeholder="User name" type="text" value="${userName ?: ""}"/>
+        <input name="pokemonName" placeholder="Pokemon name" type="text" value="${pokemonName ?: ""}"/>
+        <input name="page" type="number" value="${pageNum ?: 1}" hidden/>
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        <g:each var="user" in="${userList}">
+            <li>
+                <p>${user.name} (${user.birthday.format("dd.MM.yyyy")})</p>
 
-            <p>Pokemons:</p>
-            <ul class="pokemons-list">
-                <g:each var="pokemon" in="${user.pokemons}">
-                    <li>
-                        <h5>${pokemon.name}</h5>
-                    </li>
-                </g:each>
-            </ul>
-        </li>
-    </g:each>
-</ul>
-
-<g:if test="${pageAmount > 1}">
-    <div id="pagination">
-        <g:each var="num" in="${(1..pageAmount)}">
-            <button>${num}</button>
+                <p>Pokemons:</p>
+                <ol class="pokemons-list">
+                    <g:each var="pokemon" in="${user.pokemons}">
+                        <li>
+                            <h5>${pokemon.name}</h5>
+                        </li>
+                    </g:each>
+                </ol>
+            </li>
         </g:each>
-    </div>
-</g:if>
+    </ul>
+
+    <g:if test="${pageAmount > 1}">
+        <div id="pagination">
+            <g:each var="num" in="${(1..pageAmount)}">
+                <button>${num}</button>
+            </g:each>
+        </div>
+    </g:if>
+</main>
+<g:applyLayout name="footer"/>
 <script>
   document.getElementById('pagination').querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', (e) => {
