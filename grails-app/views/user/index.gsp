@@ -17,8 +17,8 @@
 <g:applyLayout name="header"/>
 <main>
     <form id="filter">
-        <input name="userName" placeholder="User name" type="text" value="${userName ?: ""}"/>
-        <input name="pokemonName" placeholder="Pokemon name" type="text" value="${pokemonName ?: ""}"/>
+        <input name="userNameFilter" placeholder="User name" type="text" value="${userNameFilter ?: ""}"/>
+        <input name="pokemonNameFilter" placeholder="Pokemon name" type="text" value="${pokemonNameFilter ?: ""}"/>
         <input name="page" type="number" value="${pageNum ?: 1}" hidden/>
         <button type="submit">Filter</button>
     </form>

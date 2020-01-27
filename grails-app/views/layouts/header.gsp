@@ -14,12 +14,39 @@
         top: 0;
         background: lightgray;
     }
+
+    .logout-button {
+        margin: 6px 6px 6px auto;
+    }
+
+    .header-container {
+        display: flex;
+    }
+
+    h1 {
+        margin: 0 12px;
+    }
     </style>
 </head>
 
 <body>
 <header>
-    <h1 style="margin: 0 12">HEADER</h1>
+    <g:if test="${userName}">
+        <div class="header-container">
+            <h1>Hello, ${userName}!!!</h1>
+
+            <div class="logout-button">
+                <g:link action="logout">
+                    <button>
+                        Log out
+                    </button>
+                </g:link>
+            </div>
+        </div>
+    </g:if>
+    <g:else>
+        <h1 style="margin: 0 12px">Hello, stranger...</h1>
+    </g:else>
 </header>
 </body>
 </html>

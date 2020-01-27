@@ -14,7 +14,7 @@ class UserService {
             }
             if (pokemonName) {
                 pokemons {
-                    like('name',  pokemonName.replaceAll(/\*/, "%"))
+                    like('name', pokemonName.replaceAll(/\*/, "%"))
                 }
             }
         }
@@ -24,7 +24,7 @@ class UserService {
             }
             if (pokemonName) {
                 pokemons {
-                    like('name',  pokemonName.replaceAll(/\*/, "%"))
+                    like('name', pokemonName.replaceAll(/\*/, "%"))
                 }
             }
         }.size() / PAGE_SIZE)
