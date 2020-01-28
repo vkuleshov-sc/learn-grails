@@ -6,8 +6,7 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-        "/"(view: '/index')
-        "500"(view: '/error')
-        "/task3"(view: "/task3", controller: "task3")
+        "/"(controller: "user", action: "login")
+        "500"(view: "/error")
     }
 }

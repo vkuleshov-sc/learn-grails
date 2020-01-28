@@ -27,6 +27,8 @@
             <li>
                 <p>${user.name} (${user.birthday.format("dd.MM.yyyy")})</p>
 
+                <g:link controller="user" action="edit" params="${[id: user.id]}">Edit</g:link>
+
                 <p>Pokemons:</p>
                 <ol class="pokemons-list">
                     <g:each var="pokemon" in="${user.pokemons}">

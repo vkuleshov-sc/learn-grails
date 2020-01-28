@@ -1,8 +1,17 @@
 package testgrails
 
 class UserController {
+    static scaffold = true
 
     def index() {
+        redirect(action: 'list')
+    }
+
+    def show() {
+        User.get(params.id)
+    }
+
+    def list() {
         def tmp = UserService.getUserList(
             params['userNameFilter'],
             params['pokemonNameFilter'],
@@ -26,7 +35,7 @@ class UserController {
         if (tmpUser) {
             if (tmpUser.password == params.password) {
                 session.user = tmpUser
-                redirect(action: "index")
+                redirect(action: "list")
             } else {
                 render(view: "login", model: [message: "Password incorrect"])
             }
