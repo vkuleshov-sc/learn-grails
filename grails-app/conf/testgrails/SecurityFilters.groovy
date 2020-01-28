@@ -3,7 +3,7 @@ package testgrails
 class SecurityFilters {
 
     def filters = {
-        all(controller: '*', action: '*') {
+        all(controller: 'user', action: '*') {
             before = {
                 if (!session.user && actionName != "login") {
                     redirect(controller: "user", action: "login")
