@@ -25,14 +25,14 @@
         <li><g:message code="numberFormatter.test6.label"/></li>
     </ul>
 
-    <form action="getValue" id="form1">
+    <g:form action="getValue" controller="numberFormatter" id="form1">
         <input name="value" type="text">
         <button type="submit">Submit</button>
         <input name="lang" hidden type="text"/>
         <g:if test="${params.answer}">
             <g:textField name="myField" value="${params.answer}"/>
         </g:if>
-    </form>
+    </g:form>
 </main>
 <script>
   document.getElementById('form1').addEventListener('submit', (e) => {
