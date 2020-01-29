@@ -13,11 +13,11 @@ class UserService {
         def criteria = User.createCriteria()
         def userList = criteria.list(max: PAGE_SIZE, offset: PAGE_SIZE * (page - 1)) {
             if (userName) {
-                like("name", userName.replaceAll(/\*/, "%"))
+                ilike("name", userName.replaceAll(/\*/, "%").trim())
             }
             if (pokemonName) {
                 pokemons {
-                    like('name', pokemonName.replaceAll(/\*/, "%"))
+                    ilike('name', pokemonName.replaceAll(/\*/, "%").trim())
                 }
             }
             if (dateFrom) {
@@ -29,11 +29,11 @@ class UserService {
         }
         def pageAmount = Math.ceil(User.createCriteria().list {
             if (userName) {
-                like("name", userName.replaceAll(/\*/, "%"))
+                ilike("name", userName.replaceAll(/\*/, "%").trim())
             }
             if (pokemonName) {
                 pokemons {
-                    like('name', pokemonName.replaceAll(/\*/, "%"))
+                    ilike('name', pokemonName.replaceAll(/\*/, "%").trim())
                 }
             }
             if (dateFrom) {
@@ -43,6 +43,8 @@ class UserService {
                 le('birthday', DATE_FORMAT.parse(dateTo))
             }
         }.size() / PAGE_SIZE)
-        return [userList: userList, pageAmount: pageAmount]
+        return [userList: userList.each({ user ->
+            user.pokemons = user.pokemons.sort({ p1, p2 -> p1.name <=> p2.name })
+        }), pageAmount  : pageAmount]
     }
 }
