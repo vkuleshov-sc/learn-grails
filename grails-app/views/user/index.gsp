@@ -19,9 +19,18 @@
     <form id="filter">
         <input name="userNameFilter" placeholder="User name" type="text" value="${userNameFilter ?: ""}"/>
         <input name="pokemonNameFilter" placeholder="Pokemon name" type="text" value="${pokemonNameFilter ?: ""}"/>
+        <input name="dateFromFilter" placeholder="Date from" type="date" value="${dateFromFilter ?: ""}"/>
+        <input name="dateToFilter" placeholder="Date to" type="date" value="${dateToFilter ?: ""}"/>
         <input name="page" type="number" value="${pageNum ?: 1}" hidden/>
         <button type="submit">Filter</button>
     </form>
+    <g:if test="${errors}">
+        <ol>
+            <g:each var="error" in="${errors}">
+                <li>${error}</li>
+            </g:each>
+        </ol>
+    </g:if>
     <ul>
         <g:each var="user" in="${userList}">
             <li>

@@ -8,8 +8,8 @@
 <h3>
     Binding Data + i18n
 </h3>
-<button><a href="task3">EN</a></button>
-<button><a href="task3?lang=de">DE</a></button>
+<button><a href="?lang=en">EN</a></button>
+<button><a href="?lang=de">DE</a></button>
 <ul>
     <li><g:message code="task3.test1.label"/></li>
     <li><g:message code="task3.test2.label"/></li>
@@ -24,7 +24,7 @@
     <button type="submit">Submit</button>
     <input name="lang" hidden type="text"/>
     <g:if test="${params.answer}">
-        <g:textField name="myField" value="${params.answer}" />
+        <g:textField name="myField" value="${params.answer}"/>
     </g:if>
 </form>
 <script>

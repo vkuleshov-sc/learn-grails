@@ -5,4 +5,7 @@ class User {
     String password
     Date birthday
     static hasMany = [pokemons: Pokemon]
+    static constraints = {
+        birthday max: new Date()
+    }
 }
