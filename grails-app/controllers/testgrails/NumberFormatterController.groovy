@@ -2,7 +2,7 @@ package testgrails
 
 import org.grails.databinding.BindUsing
 
-class Task3Controller {
+class NumberFormatterController {
     class ExampleToBinding {
         @BindUsing({ obj, source ->
             if (source["lang"] == "de") {
@@ -14,11 +14,15 @@ class Task3Controller {
         Double value
     }
 
-    def index() {}
+    def index() {
+        render(view: 'index', model: [
+            userName: session.user.name
+        ])
+    }
 
     def getValue() {
         def tmp = new ExampleToBinding()
         bindData(tmp, params)
-        redirect(url: "/task3?lang=${params["lang"] ?: "en"}&answer=${tmp.value ?: "Invalid value"}")
+        redirect(url: "/numberFormatter?lang=${params["lang"] ?: "en"}&answer=${tmp.value ?: "Invalid value"}")
     }
 }

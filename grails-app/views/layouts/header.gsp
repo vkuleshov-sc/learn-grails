@@ -16,7 +16,7 @@
     }
 
     .logout-button {
-        margin: 6px 6px 6px auto;
+        margin: 6px 6px 6px 6px;
     }
 
     .header-container {
@@ -26,27 +26,46 @@
     h1 {
         margin: 0 12px;
     }
+
+    .links-container {
+        margin: 6px 6px 6px auto;
+    }
+
+    .links-container > a {
+        margin: 6px 6px 6px 6px;
+    }
     </style>
 </head>
 
 <body>
 <header>
-    <g:if test="${userName}">
-        <div class="header-container">
+    <div class="header-container">
+        <g:if test="${userName}">
             <h1>Hello, ${userName}!!!</h1>
-
+        </g:if>
+        <g:else>
+            <h1 style="margin: 0 12px">Hello, stranger...</h1>
+        </g:else>
+        <div class="links-container">
+            <g:link controller="numberFormatter">
+                Number Formatter
+            </g:link>
+            <g:link controller="user" action="list">
+                User list
+            </g:link>
+        </div>
+        <g:if test="${userName}">
             <div class="logout-button">
-                <g:link action="logout">
+                <button><a href="?lang=en">EN</a></button>
+                <button><a href="?lang=de">DE</a></button>
+                <g:link controller="user" action="logout">
                     <button>
                         Log out
                     </button>
                 </g:link>
             </div>
-        </div>
-    </g:if>
-    <g:else>
-        <h1 style="margin: 0 12px">Hello, stranger...</h1>
-    </g:else>
+        </g:if>
+    </div>
 </header>
 </body>
 </html>
