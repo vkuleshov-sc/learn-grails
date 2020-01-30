@@ -1,3 +1,5 @@
+import org.apache.log4j.RollingFileAppender
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -100,12 +102,15 @@ environments {
 
 // log4j configuration
 log4j.main = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
-
+    appenders {
+        appender new RollingFileAppender(
+            name: "servicesAppender",
+            maxFileSize: 1024,
+            file: "logs/services/logFile.log")
+    }
+    root {
+        info 'stdout', 'file'
+    }
     error 'org.codehaus.groovy.grails.web.servlet',        // controllers
         'org.codehaus.groovy.grails.web.pages',          // GSP
         'org.codehaus.groovy.grails.web.sitemesh',       // layouts
@@ -117,4 +122,5 @@ log4j.main = {
         'org.springframework',
         'org.hibernate',
         'net.sf.ehcache.hibernate'
+    info servicesAppender: 'grails.app.services'
 }

@@ -1,6 +1,8 @@
 package testgrails
 
 import grails.transaction.Transactional
+import org.apache.commons.logging.Log
+import org.apache.commons.logging.LogFactory
 
 import java.text.SimpleDateFormat
 
@@ -8,6 +10,7 @@ import java.text.SimpleDateFormat
 class UserService {
     final PAGE_SIZE = 5
     final DATE_FORMAT = new SimpleDateFormat('yyyy-MM-dd')
+    static final Log log = LogFactory.getLog(this)
 
     def getUserList(String userName, String pokemonName, def dateFrom, def dateTo, Integer page) {
         def criteria = User.createCriteria()
@@ -43,6 +46,7 @@ class UserService {
                 le('birthday', DATE_FORMAT.parse(dateTo))
             }
         }.size() / PAGE_SIZE)
+        log.info("Users amount: ${userList.size()}")
         return [userList: userList.each({ user ->
             user.pokemons = user.pokemons.sort({ p1, p2 -> p1.name <=> p2.name })
         }), pageAmount  : pageAmount]
