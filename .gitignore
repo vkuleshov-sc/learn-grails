@@ -4,3 +4,10 @@ classes
 .slcache
 testgrails.iml
 testgrails-grailsPlugins.iml
+.classpath
+.project
+grailsw
+grailsw.bat
+testgrails.iml
+testgrails-grailsPlugins.iml
+logs/

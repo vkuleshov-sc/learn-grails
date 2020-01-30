@@ -4,7 +4,7 @@ import commands.UserCommand
 
 class UserController {
     def userService
-    static scaffold = true
+    static scaffold = User
 
     def index() {
         redirect(action: 'list')
