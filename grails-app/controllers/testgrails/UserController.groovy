@@ -7,7 +7,9 @@ class UserController {
     static scaffold = User
 
     def index() {
-        redirect(action: 'list')
+        render(view: 'index', model: [
+            userName: session.user.name
+        ])
     }
 
     def show() {
@@ -29,30 +31,13 @@ class UserController {
                 params.dateToFilter,
                 params.page ? Integer.parseInt(params.page) : 1,
             )
-            render(view: 'index', model: [
-                userList         : tmp.userList,
-                pageAmount       : tmp.pageAmount,
-                userNameFilter   : params.userNameFilter,
-                pokemonNameFilter: params.pokemonNameFilter,
-                dateFromFilter   : params.dateFromFilter,
-                dateToFilter     : params.dateToFilter,
-                page             : params.page,
-                userName         : session.user.name
-            ])
+            render(template: 'userTable', model: [pageAmount: tmp.pageAmount, userList: tmp.userList])
         } else {
             def errors = uc.errors.getAllErrors().collect({ error ->
                 def msg = message(code: "${error.getObjectName()}.${error.field}.${error.getCode()}")
                 msg && msg != "" ? msg : "${error.field} ${error.getCode()}"
             })
-            render(view: 'index', model: [
-                errors           : errors,
-                userNameFilter   : params.userNameFilter,
-                pokemonNameFilter: params.pokemonNameFilter,
-                dateFromFilter   : params.dateFromFilter,
-                dateToFilter     : params.dateToFilter,
-                page             : params.page,
-                userName         : session.user.name
-            ])
+            render(template: 'errors', model: [errors: errors,])
         }
     }
 
@@ -64,7 +49,7 @@ class UserController {
         if (tmpUser) {
             if (tmpUser.password == params.password) {
                 session.user = tmpUser
-                redirect(action: "list")
+                redirect(action: "index")
             } else {
                 render(view: "login", model: [message: "Password incorrect"])
             }

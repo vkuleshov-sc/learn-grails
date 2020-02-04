@@ -52,7 +52,7 @@
             <g:link controller="numberFormatter">
                 Number Formatter
             </g:link>
-            <g:link controller="user" action="list">
+            <g:link controller="user" action="index">
                 User list
             </g:link>
         </div>
