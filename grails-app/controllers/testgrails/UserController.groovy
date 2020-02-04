@@ -7,9 +7,14 @@ class UserController {
     static scaffold = User
 
     def index() {
-        render(view: 'index', model: [
-            userName: session.user.name
-        ])
+        if (session.user) {
+            render(view: 'index', model: [
+                userName: session.user.name
+            ])
+        } else {
+            redirect(action: 'login')
+        }
+
     }
 
     def show() {
