@@ -1,23 +1,47 @@
 package commands
 
-@grails.validation.Validateable
+import grails.validation.Validateable
+import org.grails.databinding.BindUsing
+import org.grails.databinding.BindingFormat
+
+@Validateable
 class UserCommand {
-    def dateFromFilter
-    def dateToFilter
+    @BindingFormat('yyyy-MM-dd')
+    Date dateFromFilter
+    @BindingFormat('yyyy-MM-dd')
+    Date dateToFilter
+    @BindUsing({ obj, source ->
+        return obj.getFormatName(source['userNameFilter'])
+    })
+    String userNameFilter
+    @BindUsing({ obj, source ->
+        return obj.getFormatName(source['pokemonNameFilter'])
+    })
+    String pokemonNameFilter
+    @BindUsing({ obj, source ->
+        return source['page'] ?: 1
+    })
+    Integer page
+
+    static String getFormatName(String name){
+        return name.replaceAll(/\*/, "%").trim()
+    }
 
     static constraints = {
-        dateFromFilter validator: { val, obj, errors ->
-            if (val instanceof Date && val > new Date()) {
+        dateFromFilter bindable: true, nullable: true, validator: { val, obj, errors ->
+            if (val && val > new Date()) {
                 errors.rejectValue('dateFromFilter', 'fromFuture')
             }
         }
-        dateToFilter validator: { val, obj, errors ->
-            if (val instanceof Date && val > new Date()) {
+        dateToFilter bindable: true, nullable: true, validator: { val, obj, errors ->
+            if (val && val > new Date()) {
                 errors.rejectValue('dateToFilter', 'fromFuture')
             }
-            if (val instanceof Date && obj.dateFromFilter instanceof Date && val < obj.dateFromFilter) {
+            if (val && obj.dateFromFilter && val < obj.dateFromFilter) {
                 errors.rejectValue('dateToFilter', 'less')
             }
         }
+        userNameFilter bindable: true, nullable: true
+        pokemonNameFilter bindable: true, nullable: true
     }
 }

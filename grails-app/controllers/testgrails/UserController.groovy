@@ -22,25 +22,16 @@ class UserController {
     }
 
     def list() {
-        def uc = new UserCommand(
-            dateToFilter: params.dateToFilter && params.dateToFilter != '' ?
-                userService.DATE_FORMAT.parse(params.dateToFilter) : false,
-            dateFromFilter: params.dateFromFilter && params.dateFromFilter != '' ?
-                userService.DATE_FORMAT.parse(params.dateFromFilter) : false
-        )
-        if (uc.validate()) {
-            def tmp = userService.getUserList(
-                params.userNameFilter,
-                params.pokemonNameFilter,
-                params.dateFromFilter,
-                params.dateToFilter,
-                params.page ? Integer.parseInt(params.page) : 1,
-            )
-            render(template: 'userTable', model: [pageAmount: tmp.pageAmount, userList: tmp.userList])
+        def userCommand = new UserCommand()
+        bindData(userCommand, params)
+        if (userCommand.validate()) {
+            render(
+                template: 'userTable',
+                model: userService.getUserList(userCommand))
         } else {
-            def errors = uc.errors.getAllErrors().collect({ error ->
+            def errors = userCommand.errors.getAllErrors().collect({ error ->
                 def msg = message(code: "${error.getObjectName()}.${error.field}.${error.getCode()}")
-                msg && msg != "" ? msg : "${error.field} ${error.getCode()}"
+                msg ?: "${error.field} ${error.getCode()}"
             })
             render(template: 'errors', model: [errors: errors,])
         }
