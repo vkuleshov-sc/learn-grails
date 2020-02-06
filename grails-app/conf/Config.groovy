@@ -76,10 +76,9 @@ environments {
 
 log4j = {
     appenders {
-        appender new RollingFileAppender(
-            name: "servicesAppender",
+        rollingFile name: "servicesAppender",
             maxFileSize: 1024,
-            file: "logs/services/logFile.log")
+            file: "logs/services/logFile.log"
     }
     root {
         info 'stdout', 'file'
