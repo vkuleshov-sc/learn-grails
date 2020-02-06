@@ -48,15 +48,16 @@
         <g:else>
             <h1 style="margin: 0 12px">Hello, stranger...</h1>
         </g:else>
-        <div class="links-container">
-            <g:link controller="numberFormatter">
-                Number Formatter
-            </g:link>
-            <g:link controller="user" action="index">
-                User list
-            </g:link>
-        </div>
         <g:if test="${userName}">
+            <div class="links-container">
+                <g:link controller="numberFormatter">
+                    Number Formatter
+                </g:link>
+                <g:link controller="user" action="index">
+                    User list
+                </g:link>
+            </div>
+
             <div class="logout-button">
                 <button><a href="?lang=en">EN</a></button>
                 <button><a href="?lang=de">DE</a></button>
