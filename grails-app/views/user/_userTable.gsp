@@ -36,8 +36,9 @@
 <script>
   document.getElementById('pagination').querySelectorAll('button').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      document.getElementById('filter').page.value = e.target.innerHTML
-      document.getElementById('filter-button').click()
+      document.getElementById('filter').page.value = e.target.innerHTML;
+      document.getElementById('filter-button').click();
+      document.getElementById('filter').page.value = 1;
     })
   })
 </script>
