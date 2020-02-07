@@ -32,7 +32,7 @@ class UserService {
                     ilike('name', params.pokemonNameFilter)
                 }
             }
-            firstResult(params.page ? (params.page - 1) * PAGE_SIZE - 1 : 0)
+            firstResult(params.page ? (params.page - 1) * PAGE_SIZE : 0)
             maxResults(PAGE_SIZE)
         }.collect { id -> User.get(id) }
         criteria = User.createCriteria()
