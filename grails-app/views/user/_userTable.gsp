@@ -2,10 +2,10 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Birthday</th>
-            <th>Pokemons</th>
-            <th>Actions</th>
+            <th><g:message code="user.name"/></th>
+            <th><g:message code="user.birthday"/></th>
+            <th><g:message code="user.pokemons"/></th>
+            <th><g:message code="user.actions"/></th>
         </tr>
         </thead>
         <tbody>
@@ -20,7 +20,11 @@
                         </g:each>
                     </ol>
                 </td>
-                <td><g:link controller="user" action="edit" params="${[id: user.id]}">Edit</g:link></td>
+                <td>
+                    <g:link controller="user" action="edit" params="${[id: user.id]}">
+                        <g:message code="user.actions.edit"/>
+                    </g:link>
+                </td>
             </tr>
         </g:each>
         </tbody>

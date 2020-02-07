@@ -22,12 +22,13 @@
     <input type="text" name="name" placeholder="Login"/>
     <input type="password" name="password" placeholder="Password"/>
     <button>
-        Log in
+        <g:message code="actions.logIn"/>
     </button>
 
     <div>
         ${message}
     </div>
 </form>
+<g:applyLayout name="footer"/>
 </body>
 </html>

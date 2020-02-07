@@ -12,14 +12,26 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
     footer {
+        display: flex;
         background: lightgray;
+    }
+
+    .lang-buttons {
+        margin: 6px 24px 6px auto;
     }
     </style>
 </head>
 
 <body>
 <footer>
-    <h1 style="margin: 0 12px;">FOOTER</h1>
+    <div class="lang-buttons">
+        <g:remoteLink controller="locale" action="setLang" params="[lang: 'en']" onComplete="location.reload()">
+            <button>EN</button>
+        </g:remoteLink>
+        <g:remoteLink controller="locale" action="setLang" params="[lang: 'de']" onComplete="location.reload()">
+            <button>DE</button>
+        </g:remoteLink>
+    </div>
 </footer>
 </body>
 </html>

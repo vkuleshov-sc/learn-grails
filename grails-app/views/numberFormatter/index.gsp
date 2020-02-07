@@ -27,17 +27,12 @@
 
     <g:form action="getValue" controller="numberFormatter" id="form1">
         <input name="value" type="text">
-        <button type="submit">Submit</button>
-        <input name="lang" hidden type="text"/>
-        <g:if test="${params.answer}">
-            <g:textField name="myField" value="${params.answer}"/>
+        <button type="submit"><g:message code="actions.submit"/></button>
+        <g:if test="${answer}">
+            <g:textField name="myField" value="${answer}"/>
         </g:if>
     </g:form>
 </main>
-<script>
-  document.getElementById('form1').addEventListener('submit', (e) => {
-    e.target.children.lang.value = new URL(location.href).searchParams.get('lang')
-  })
-</script>
+<g:applyLayout name="footer"/>
 </body>
 </html>

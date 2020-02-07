@@ -10,8 +10,9 @@ class NumberFormatterController {
     }
 
     def getValue() {
-        def tmp = new NumberFormatter()
-        bindData(tmp, params)
-        redirect(url: "/numberFormatter?lang=${params["lang"] ?: "en"}&answer=${tmp.value ?: "Invalid value"}")
+        def numberFormatter = new NumberFormatter()
+        params.lang = session.lang
+        bindData(numberFormatter, params)
+        render(view: 'index', model: [answer: numberFormatter.value?: 'Invalid value', userName: session.user.name])
     }
 }

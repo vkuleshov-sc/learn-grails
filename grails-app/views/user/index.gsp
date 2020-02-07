@@ -11,17 +11,18 @@
         margin: 12px;
     }
     </style>
-    <g:javascript library="jquery" plugin="jquery"/>
 </head>
 
 <body>
 <g:applyLayout name="header"/>
 <main>
     <g:formRemote name="filter" id="filter" url="[controller: 'user', action: 'list']" update="to-update">
-        <input name="userNameFilter" placeholder="User name" type="text" value="${userNameFilter ?: ""}"/>
-        <input name="pokemonNameFilter" placeholder="Pokemon name" type="text" value="${pokemonNameFilter ?: ""}"/>
-        <input name="dateFromFilter" placeholder="Date from" type="date" value="${dateFromFilter ?: ""}"/>
-        <input name="dateToFilter" placeholder="Date to" type="date" value="${dateToFilter ?: ""}"/>
+        <input name="userNameFilter" placeholder="${message(code: 'user.userName')}" type="text"
+               value="${userNameFilter ?: ""}"/>
+        <input name="pokemonNameFilter" placeholder="${message(code: 'user.pokemonName')}" type="text"
+               value="${pokemonNameFilter ?: ""}"/>
+        <input name="dateFromFilter" type="date" value="${dateFromFilter ?: ""}"/>
+        <input name="dateToFilter" type="date" value="${dateToFilter ?: ""}"/>
         <input name="page" type="number" value="${pageNum ?: 1}" hidden/>
         <button id="filter-button" type="submit">Filter</button>
     </g:formRemote>

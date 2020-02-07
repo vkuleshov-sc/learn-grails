@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <g:javascript library="jquery" plugin="jquery"/>
     <style>
     header {
         position: sticky;
@@ -43,27 +44,25 @@
 <header>
     <div class="header-container">
         <g:if test="${userName}">
-            <h1>Hello, ${userName}!!!</h1>
+            <h1><g:message code="header.greeting"/> ${userName}!!!</h1>
         </g:if>
         <g:else>
-            <h1 style="margin: 0 12px">Hello, stranger...</h1>
+            <h1><g:message code="header.greeting"/> <g:message code="header.stranger"/></h1>
         </g:else>
         <g:if test="${userName}">
             <div class="links-container">
                 <g:link controller="numberFormatter">
-                    Number Formatter
+                    <g:message code="header.numberFormatter"/>
                 </g:link>
                 <g:link controller="user" action="index">
-                    User list
+                    <g:message code="header.userList"/>
                 </g:link>
             </div>
 
             <div class="logout-button">
-                <button><a href="?lang=en">EN</a></button>
-                <button><a href="?lang=de">DE</a></button>
                 <g:link controller="user" action="logout">
                     <button>
-                        Log out
+                        <g:message code="actions.logOut"/>
                     </button>
                 </g:link>
             </div>
