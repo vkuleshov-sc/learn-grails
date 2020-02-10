@@ -1,9 +1,9 @@
 package testgrails
 
+import grails.converters.JSON
 import grails.rest.RestfulController
 
 class PokemonsApiController extends RestfulController {
-    static responseFormats = ['json', 'xml']
     def pokemonService
 
     PokemonsApiController() {
@@ -11,10 +11,10 @@ class PokemonsApiController extends RestfulController {
     }
 
     def index() {
-        respond(pokemonService.getList(params))
+        render pokemonService.getList(params.name) as JSON
     }
 
     def get() {
-        respond pokemonService.get(params.id)
+        render pokemonService.get(params.id) as JSON
     }
 }

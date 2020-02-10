@@ -3,6 +3,7 @@ package commands
 import grails.validation.Validateable
 import org.grails.databinding.BindUsing
 import org.grails.databinding.BindingFormat
+import utils.DataFormatter
 
 @Validateable
 class UserCommand {
@@ -11,21 +12,17 @@ class UserCommand {
     @BindingFormat('yyyy-MM-dd')
     Date dateToFilter
     @BindUsing({ obj, source ->
-        return obj.getFormatName(source['userNameFilter'])
+        return DataFormatter.getFormatName(source['userNameFilter'])
     })
     String userNameFilter
     @BindUsing({ obj, source ->
-        return obj.getFormatName(source['pokemonNameFilter'])
+        return DataFormatter.getFormatName(source['pokemonNameFilter'])
     })
     String pokemonNameFilter
     @BindUsing({ obj, source ->
         return source['page'] ?: 1
     })
     Integer page
-
-    static String getFormatName(String name){
-        return name.replaceAll(/\*/, "%").trim()
-    }
 
     static constraints = {
         dateFromFilter bindable: true, nullable: true, validator: { val, obj, errors ->

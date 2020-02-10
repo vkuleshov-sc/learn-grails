@@ -17,12 +17,15 @@ class UserController {
     }
 
     def list() {
-        def userCommand = new UserCommand()
+        UserCommand userCommand = new UserCommand()
         bindData(userCommand, params)
         if (userCommand.validate()) {
             render(
                 template: 'userTable',
-                model: userService.getUserList(userCommand))
+                model: [
+                    pageAmount: userService.getPageAmount(userCommand),
+                    userList  : userService.getUserList(userCommand)
+                ])
         } else {
             def errors = userCommand.errors.getAllErrors().collect({ error ->
                 def msg = message(code: "${error.getObjectName()}.${error.field}.${error.getCode()}")

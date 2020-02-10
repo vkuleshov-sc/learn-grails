@@ -1,19 +1,18 @@
 package testgrails
 
-import grails.transaction.Transactional
+import utils.DataFormatter
 
-@Transactional
 class PokemonService {
 
-    def getList(Map params) {
+    def getList(String name) {
         return Pokemon.createCriteria().list {
-            if (params.name) {
-                ilike("name", params.name.replaceAll(/\*/, "%").trim())
+            if (name) {
+                ilike("name", DataFormatter.getFormatName(name))
             }
         }
     }
 
-    def get(Serializable id) {
+    def get(id) {
         return Pokemon.get(id)
     }
 }

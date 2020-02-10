@@ -1,56 +1,46 @@
 package testgrails
 
 import commands.UserCommand
-import grails.transaction.Transactional
+import grails.orm.HibernateCriteriaBuilder
 
-@Transactional
 class UserService {
-    static final PAGE_SIZE = 5
+    private static final PAGE_SIZE = 5
 
-    def criteriaClosure = { ilike, ge, le, userName, dateFrom, dateTo ->
-        if (userName) {
-            ilike("name", userName)
+    def criteriaQuery = { HibernateCriteriaBuilder criteria, UserCommand userCommand ->
+        criteria.projections {
+            criteria.groupProperty('id')
         }
-        if (dateFrom) {
-            ge('birthday', dateFrom)
+        if (userCommand.userNameFilter) {
+            criteria.ilike("name", userCommand.userNameFilter)
         }
-        if (dateTo) {
-            le('birthday', dateTo)
+        if (userCommand.dateFromFilter) {
+            criteria.ge('birthday', userCommand.dateFromFilter)
+        }
+        if (userCommand.dateToFilter) {
+            criteria.le('birthday', userCommand.dateToFilter)
+        }
+        if (userCommand.pokemonNameFilter) {
+            criteria.createAlias('pokemons', 'pokemons')
+            criteria.ilike('pokemons.name', userCommand.pokemonNameFilter)
         }
     }
 
-    def getUserList(UserCommand params) {
-        def criteria = User.createCriteria()
-        def userList = criteria.list {
-            projections {
-                groupProperty('id')
-            }
-            criteriaClosure(criteria.&ilike, criteria.&ge, criteria.&le,
-                params.userNameFilter, params.dateFromFilter, params.dateToFilter)
-            if (params.pokemonNameFilter) {
-                pokemons {
-                    ilike('name', params.pokemonNameFilter)
-                }
-            }
-            firstResult(params.page ? (params.page - 1) * PAGE_SIZE : 0)
-            maxResults(PAGE_SIZE)
+    def getUserList(UserCommand userCommand) {
+        HibernateCriteriaBuilder criteria = User.createCriteria()
+        def userList = criteria.list(max: PAGE_SIZE, offset: (userCommand.page - 1) * PAGE_SIZE) {
+            criteriaQuery(criteria, userCommand)
         }.collect { id -> User.get(id) }
-        criteria = User.createCriteria()
-        def userCount = criteria.list {
-            projections {
-                countDistinct('id')
-            }
-            criteriaClosure(criteria.&ilike, criteria.&ge, criteria.&le,
-                params.userNameFilter, params.dateFromFilter, params.dateToFilter)
-            if (params.pokemonNameFilter) {
-                pokemons {
-                    ilike('name', params.pokemonNameFilter)
-                }
-            }
-        }[0]
-        log.info("User total amount: ${userCount}")
-        return [userList: userList.each({ user ->
+        return userList.each { user ->
             user.pokemons = user.pokemons.sort({ p1, p2 -> p1.name <=> p2.name })
-        }), pageAmount  : Math.ceil(userCount / PAGE_SIZE)]
+        }
+    }
+
+    def getPageAmount(UserCommand userCommand) {
+        HibernateCriteriaBuilder criteria = User.createCriteria()
+        int userCount = criteria.list { // FIX: don't use list
+            criteriaQuery(criteria, userCommand)
+        }.size()
+        log.info("User total amount: ${userCount}")
+        return Math.ceil(userCount / PAGE_SIZE)
     }
 }

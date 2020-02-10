@@ -11,8 +11,7 @@ class NumberFormatterController {
 
     def getValue() {
         def numberFormatter = new NumberFormatter()
-        params.lang = session.lang
         bindData(numberFormatter, params)
-        render(view: 'index', model: [answer: numberFormatter.value?: 'Invalid value', userName: session.user.name])
+        render(view: 'index', model: [answer: numberFormatter.value ?: 'Invalid value', userName: session.user.name])
     }
 }
