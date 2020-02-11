@@ -4,14 +4,12 @@ import utils.NumberFormatter
 
 class NumberFormatterController {
     def index() {
-        render(view: 'index', model: [
-            userName: session.user.name
-        ])
+        render(view: 'index')
     }
 
     def getValue() {
-        def numberFormatter = new NumberFormatter()
-        bindData(numberFormatter, params)
-        render(view: 'index', model: [answer: numberFormatter.value ?: 'Invalid value', userName: session.user.name])
+        Locale locale = new Locale(session.lang ?: 'en')
+        double value = NumberFormatter.convert(params.value, locale)
+        render(view: 'index', model: [answer: NumberFormatter.format(value, locale) ?: 'Invalid value'])
     }
 }

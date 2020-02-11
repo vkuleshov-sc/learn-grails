@@ -37,7 +37,7 @@ class UserService {
 
     def getPageAmount(UserCommand userCommand) {
         HibernateCriteriaBuilder criteria = User.createCriteria()
-        int userCount = criteria.list { // FIX: don't use list
+        int userCount = criteria.list {
             criteriaQuery(criteria, userCommand)
         }.size()
         log.info("User total amount: ${userCount}")

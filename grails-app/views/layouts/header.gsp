@@ -43,13 +43,13 @@
 <body>
 <header>
     <div class="header-container">
-        <g:if test="${userName}">
-            <h1><g:message code="header.greeting"/> ${userName}!!!</h1>
+        <g:if test="${session.user}">
+            <h1><g:message code="header.greeting"/> ${session.user.name}!!!</h1>
         </g:if>
         <g:else>
             <h1><g:message code="header.greeting"/> <g:message code="header.stranger"/></h1>
         </g:else>
-        <g:if test="${userName}">
+        <g:if test="${session.user}">
             <div class="links-container">
                 <g:link controller="numberFormatter">
                     <g:message code="header.numberFormatter"/>

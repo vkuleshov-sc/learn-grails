@@ -15,6 +15,6 @@ class PokemonsApiController extends RestfulController {
     }
 
     def get() {
-        render pokemonService.get(params.id) as JSON
+        render pokemonService.get(Integer.parseInt(params.id)) as JSON
     }
 }

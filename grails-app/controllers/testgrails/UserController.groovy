@@ -7,9 +7,7 @@ class UserController {
     static scaffold = User
 
     def index() {
-        render(view: 'index', model: [
-            userName: session.user.name
-        ])
+        render(view: 'index')
     }
 
     def show() {

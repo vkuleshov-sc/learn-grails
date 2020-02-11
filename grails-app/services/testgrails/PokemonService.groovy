@@ -12,7 +12,7 @@ class PokemonService {
         }
     }
 
-    def get(id) {
+    def get(int id) {
         return Pokemon.get(id)
     }
 }
