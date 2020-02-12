@@ -8,9 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <g:javascript library="jquery" plugin="jquery"/>
+    <r:require modules="jquery, bootstrap"/>
     <style>
     header {
         position: sticky;
@@ -38,6 +36,7 @@
         margin: 6px 6px 6px 6px;
     }
     </style>
+    <r:layoutResources/>
 </head>
 
 <body>
@@ -69,5 +68,6 @@
         </g:if>
     </div>
 </header>
+<r:layoutResources/>
 </body>
 </html>
