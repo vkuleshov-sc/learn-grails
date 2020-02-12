@@ -10,11 +10,6 @@
 <head>
     <title></title>
 </head>
-<style>
-.login-form {
-    margin-top: 12px;
-}
-</style>
 
 <body>
 <g:applyLayout name="header"/>

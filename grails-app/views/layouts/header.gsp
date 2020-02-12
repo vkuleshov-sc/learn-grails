@@ -59,7 +59,7 @@
             </div>
 
             <div class="logout-button">
-                <g:link controller="user" action="logout">
+                <g:link controller="authentication" action="logout">
                     <button>
                         <g:message code="actions.logOut"/>
                     </button>

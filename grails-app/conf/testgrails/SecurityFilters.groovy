@@ -6,7 +6,7 @@ class SecurityFilters {
         all(controller: '*', action: '*') {
             before = {
                 if (!session.user && actionName != "login") {
-                    redirect(controller: "user", action: "login")
+                    redirect(controller: "authentication", action: "login")
                     return false
                 }
             }
