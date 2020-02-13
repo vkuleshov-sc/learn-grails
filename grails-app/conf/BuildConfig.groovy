@@ -26,6 +26,9 @@ grails.project.fork = [
     run : false
 ]
 
+grails.plugin.location."models" = "plugins/models"
+grails.plugin.location."login" = "plugins/login"
+
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies

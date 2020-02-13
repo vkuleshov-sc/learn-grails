@@ -1,6 +1,7 @@
 package testgrails
 
 import commands.UserCommand
+import models.User
 
 class UserController {
     def userService

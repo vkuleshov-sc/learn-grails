@@ -1,4 +1,6 @@
-package testgrails
+package login
+
+import models.User
 
 class AuthenticationController {
 

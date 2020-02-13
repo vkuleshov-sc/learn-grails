@@ -11,3 +11,9 @@ grailsw.bat
 testgrails.iml
 testgrails-grailsPlugins.iml
 logs/
+login-inplacePlugin.iml
+models-inplacePlugin.iml
+plugins/models/.project
+plugins/models/.classpath
+plugins/login/.classpath
+plugins/login/.classpath

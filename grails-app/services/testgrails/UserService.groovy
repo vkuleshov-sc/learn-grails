@@ -2,6 +2,7 @@ package testgrails
 
 import commands.UserCommand
 import grails.orm.HibernateCriteriaBuilder
+import models.User
 
 class UserService {
     private static final PAGE_SIZE = 5

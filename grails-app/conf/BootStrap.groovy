@@ -1,5 +1,5 @@
-import testgrails.Pokemon
-import testgrails.User
+import models.Pokemon
+import models.User
 
 import java.text.SimpleDateFormat
 

@@ -1,4 +1,4 @@
-package testgrails
+package models
 
 class Pokemon {
     String name

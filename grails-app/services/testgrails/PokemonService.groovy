@@ -1,6 +1,7 @@
 package testgrails
 
 import utils.DataFormatter
+import models.Pokemon
 
 class PokemonService {
 

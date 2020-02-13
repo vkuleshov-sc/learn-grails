@@ -2,6 +2,7 @@ package testgrails
 
 import grails.converters.JSON
 import grails.rest.RestfulController
+import models.Pokemon
 
 class PokemonsApiController extends RestfulController {
     def pokemonService

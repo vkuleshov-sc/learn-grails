@@ -1,4 +1,4 @@
-package testgrails
+package models
 
 class User {
     String name
