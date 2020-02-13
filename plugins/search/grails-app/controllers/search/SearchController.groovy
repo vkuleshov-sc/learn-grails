@@ -1,18 +1,13 @@
-package testgrails
+package search
 
 import commands.UserCommand
-import models.User
 
-class UserController {
-    def userService
-    static scaffold = User
+class SearchController {
+
+    def searchService
 
     def index() {
         render(view: 'index')
-    }
-
-    def show() {
-        User.get(params.id)
     }
 
     def list() {
@@ -22,8 +17,8 @@ class UserController {
             render(
                 template: 'userTable',
                 model: [
-                    pageAmount: userService.getPageAmount(userCommand),
-                    userList  : userService.getUserList(userCommand)
+                    pageAmount: searchService.getPageAmount(userCommand),
+                    userList  : searchService.getUserList(userCommand)
                 ])
         } else {
             def errors = userCommand.errors.getAllErrors().collect({ error ->

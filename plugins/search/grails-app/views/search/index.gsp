@@ -16,7 +16,7 @@
 <body>
 <g:applyLayout name="header"/>
 <main>
-    <g:formRemote name="filter" id="filter" url="[controller: 'user', action: 'list']" update="to-update">
+    <g:formRemote name="filter" id="filter" url="[controller: 'search', action: 'list']" update="to-update">
         <input name="userNameFilter" placeholder="${message(code: 'user.userName')}" type="text"
                value="${userNameFilter ?: ""}"/>
         <input name="pokemonNameFilter" placeholder="${message(code: 'user.pokemonName')}" type="text"

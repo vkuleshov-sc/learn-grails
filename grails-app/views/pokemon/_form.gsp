@@ -1,4 +1,4 @@
-<%@ page import="testgrails.Pokemon" %>
+<%@ page import="models.Pokemon" %>
 
 
 
@@ -11,12 +11,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: pokemonInstance, field: 'user', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: pokemonInstance, field: 'search', 'error')} required">
 	<label for="user">
 		<g:message code="pokemon.user.label" default="User" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="user" name="user.id" from="${testgrails.User.list()}" optionKey="id" required="" value="${pokemonInstance?.user?.id}" class="many-to-one"/>
+	<g:select id="user" name="user.id" from="${models.User.list()}" optionKey="id" required="" value="${pokemonInstance?.user?.id}" class="many-to-one"/>
 
 </div>
 

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main">
-    <g:set var="entityName" value="${message(code: 'user.label', default: 'User')}"/>
+    <g:set var="entityName" value="${message(code: 'search.label', default: 'User')}"/>
     <link rel="stylesheet" href="<g:createLinkTo dir="css" file="main.css"/>"/>
     <link rel="stylesheet" href="<g:createLinkTo dir="css" file="errors.css"/>"/>
     <link rel="stylesheet" href="<g:createLinkTo dir="css" file="mobile.css"/>"/>

@@ -1,4 +1,4 @@
-<%@ page import="testgrails.Pokemon" %>
+<%@ page import="models.Pokemon" %>
 <!DOCTYPE html>
 <html>
 <head>

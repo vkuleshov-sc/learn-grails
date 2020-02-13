@@ -1,4 +1,4 @@
-<%@ page import="testgrails.User" %>
+<%@ page import="models.User" %>
 
 
 
@@ -40,7 +40,7 @@
     <li><g:link controller="pokemon" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="pokemon" action="create" params="['user.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'pokemon.label', default: 'Pokemon')])}</g:link>
+<g:link controller="pokemon" action="create" params="['search.id': userInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'pokemon.label', default: 'Pokemon')])}</g:link>
 </li>
 </ul>
 

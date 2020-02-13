@@ -6,7 +6,7 @@ class AuthenticationController {
 
     def login() {
         if (session.user) {
-            redirect(controller: 'user')
+            redirect(controller: 'search')
         }
         if (request.get) {
             return
@@ -15,7 +15,7 @@ class AuthenticationController {
         if (tmpUser) {
             if (tmpUser.password == params.password) {
                 session.user = tmpUser
-                redirect(controller: 'user', action: "index")
+                redirect(controller: 'search', action: "index")
             } else {
                 render(view: "login", model: [message: "Password incorrect"])
             }

@@ -28,6 +28,8 @@ grails.project.fork = [
 
 grails.plugin.location."models" = "plugins/models"
 grails.plugin.location."login" = "plugins/login"
+grails.plugin.location."search" = "plugins/search"
+grails.plugin.location."user-crud" = "plugins/user-crud"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {

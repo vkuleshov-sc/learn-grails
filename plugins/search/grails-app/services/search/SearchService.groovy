@@ -1,10 +1,11 @@
-package testgrails
+package search
 
 import commands.UserCommand
 import grails.orm.HibernateCriteriaBuilder
 import models.User
 
-class UserService {
+class SearchService {
+
     private static final PAGE_SIZE = 5
 
     def criteriaQuery = { HibernateCriteriaBuilder criteria, UserCommand userCommand ->

@@ -1,4 +1,4 @@
-<%@ page import="testgrails.Pokemon" %>
+<%@ page import="models.Pokemon" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +46,7 @@
                 <span id="user-label" class="property-label"><g:message code="pokemon.user.label"
                                                                         default="User"/></span>
 
-                <span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show"
+                <span class="property-value" aria-labelledby="user-label"><g:link controller="search" action="show"
                                                                                   id="${pokemonInstance?.user?.id}">${pokemonInstance?.user?.encodeAsHTML()}</g:link></span>
 
             </li>

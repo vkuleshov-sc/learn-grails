@@ -1,4 +1,4 @@
-<%@ page import="testgrails.Pokemon" %>
+<%@ page import="models.Pokemon" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,7 +44,7 @@
                 <td><g:link action="show"
                             id="${pokemonInstance.id}">${fieldValue(bean: pokemonInstance, field: "name")}</g:link></td>
 
-                <td>${fieldValue(bean: pokemonInstance, field: "user")}</td>
+                <td>${fieldValue(bean: pokemonInstance, field: "search")}</td>
 
             </tr>
         </g:each>

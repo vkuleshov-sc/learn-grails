@@ -53,7 +53,7 @@
                 <g:link controller="numberFormatter">
                     <g:message code="header.numberFormatter"/>
                 </g:link>
-                <g:link controller="user" action="index">
+                <g:link controller="search" action="index">
                     <g:message code="header.userList"/>
                 </g:link>
             </div>
