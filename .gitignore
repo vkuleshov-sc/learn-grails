@@ -20,6 +20,8 @@ numberFormatter-inplacePlugin.iml
 pokemonCrud-inplacePlugin.iml
 locale-inplacePlugin.iml
 pokemonJsonApi-inplacePlugin.iml
+layouts-inplacePlugin.iml
+utils-inplacePlugin.iml
 
 plugins/models/.project
 plugins/models/.classpath
@@ -52,3 +54,7 @@ plugins/locale/target
 plugins/pokemon-json-api/.project
 plugins/pokemon-json-api/.classpath
 plugins/pokemon-json-api/target
+
+plugins/layouts/.project
+plugins/layouts/.classpath
+plugins/layouts/target

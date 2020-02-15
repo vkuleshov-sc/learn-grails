@@ -1,6 +1,6 @@
 package number.formatter
 
-import utils.NumberFormatter
+import utils.utils.NumberFormatter
 
 class NumberFormatterController {
     def index() {

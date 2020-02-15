@@ -17,6 +17,8 @@ grails.project.fork = [
 ]
 
 grails.plugin.location."models" = "../models"
+grails.plugin.location."layouts" = "../layouts"
+grails.plugin.location."utils" = "../utils"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {

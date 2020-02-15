@@ -34,6 +34,7 @@ grails.plugin.location."number-formatter"="plugins/number-formatter"
 grails.plugin.location."pokemon-crud"="plugins/pokemon-crud"
 grails.plugin.location."locale"="plugins/locale"
 grails.plugin.location."pokemon-json-api"="plugins/pokemon-json-api"
+grails.plugin.location."layouts"="plugins/layouts"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
