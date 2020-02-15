@@ -4,7 +4,7 @@ class UserCrudGrailsPlugin {
     def pluginExcludes = [
         "grails-app/views/error.gsp"
     ]
-    def title = "User Crud Plugin\""
+    def title = "User Crud Plugin"
     def author = "vkuleshov-sc"
     def authorEmail = "kuleshov@scand.com"
     def description = ""
