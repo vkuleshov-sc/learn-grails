@@ -1,4 +1,10 @@
-import org.apache.log4j.RollingFileAppender
+grails {
+    mail {
+        host = "localhost"
+        username = "testgrails@testgrails.com"
+        password = "testgrails"
+    }
+}
 
 grails.project.groupId = appName
 

@@ -45,4 +45,8 @@ class SearchService {
         log.info("User total amount: ${userCount}")
         return Math.ceil(userCount / PAGE_SIZE)
     }
+
+    def getTotalAmount(){
+        return User.count()
+    }
 }
