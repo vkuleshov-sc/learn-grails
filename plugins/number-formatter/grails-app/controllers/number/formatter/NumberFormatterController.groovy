@@ -1,4 +1,4 @@
-package testgrails
+package number.formatter
 
 import utils.NumberFormatter
 
@@ -13,3 +13,4 @@ class NumberFormatterController {
         render(view: 'index', model: [answer: NumberFormatter.format(value, locale) ?: 'Invalid value'])
     }
 }
+

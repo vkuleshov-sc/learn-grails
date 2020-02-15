@@ -16,6 +16,8 @@ login-inplacePlugin.iml
 models-inplacePlugin.iml
 search-inplacePlugin.iml
 userCrud-inplacePlugin.iml
+numberFormatter-inplacePlugin.iml
+pokemonCrud-inplacePlugin.iml
 
 plugins/models/.project
 plugins/models/.classpath
@@ -32,3 +34,11 @@ plugins/search/target
 plugins/user-crud/.project
 plugins/user-crud/.classpath
 plugins/user-crud/target
+
+plugins/number-formatter/.project
+plugins/number-formatter/.classpath
+plugins/number-formatter/target
+
+plugins/pokemon-crud/.project
+plugins/pokemon-crud/.classpath
+plugins/pokemon-crud/target
