@@ -1,4 +1,4 @@
-package testgrails
+package pokemon.json.api
 
 import grails.converters.JSON
 import grails.rest.RestfulController

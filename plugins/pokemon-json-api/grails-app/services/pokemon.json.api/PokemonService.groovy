@@ -1,4 +1,4 @@
-package testgrails
+package pokemon.json.api
 
 import utils.DataFormatter
 import models.Pokemon
