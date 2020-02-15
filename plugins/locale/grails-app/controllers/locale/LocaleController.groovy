@@ -1,4 +1,4 @@
-package testgrails
+package locale
 
 class LocaleController {
 

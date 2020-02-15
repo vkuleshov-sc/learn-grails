@@ -32,6 +32,7 @@ grails.plugin.location."search" = "plugins/search"
 grails.plugin.location."user-crud" = "plugins/user-crud"
 grails.plugin.location."number-formatter"="plugins/number-formatter"
 grails.plugin.location."pokemon-crud"="plugins/pokemon-crud"
+grails.plugin.location."locale"="plugins/locale"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {

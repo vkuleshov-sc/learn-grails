@@ -18,6 +18,7 @@ search-inplacePlugin.iml
 userCrud-inplacePlugin.iml
 numberFormatter-inplacePlugin.iml
 pokemonCrud-inplacePlugin.iml
+locale-inplacePlugin.iml
 
 plugins/models/.project
 plugins/models/.classpath
@@ -42,3 +43,7 @@ plugins/number-formatter/target
 plugins/pokemon-crud/.project
 plugins/pokemon-crud/.classpath
 plugins/pokemon-crud/target
+
+plugins/locale/.project
+plugins/locale/.classpath
+plugins/locale/target
