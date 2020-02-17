@@ -15,12 +15,7 @@ logs/
 login-inplacePlugin.iml
 models-inplacePlugin.iml
 search-inplacePlugin.iml
-userCrud-inplacePlugin.iml
 numberFormatter-inplacePlugin.iml
-pokemonCrud-inplacePlugin.iml
-locale-inplacePlugin.iml
-pokemonJsonApi-inplacePlugin.iml
-layouts-inplacePlugin.iml
 utils-inplacePlugin.iml
 
 plugins/models/.project
@@ -35,26 +30,10 @@ plugins/search/.project
 plugins/search/.classpath
 plugins/search/target
 
-plugins/user-crud/.project
-plugins/user-crud/.classpath
-plugins/user-crud/target
-
 plugins/number-formatter/.project
 plugins/number-formatter/.classpath
 plugins/number-formatter/target
 
-plugins/pokemon-crud/.project
-plugins/pokemon-crud/.classpath
-plugins/pokemon-crud/target
-
-plugins/locale/.project
-plugins/locale/.classpath
-plugins/locale/target
-
-plugins/pokemon-json-api/.project
-plugins/pokemon-json-api/.classpath
-plugins/pokemon-json-api/target
-
-plugins/layouts/.project
-plugins/layouts/.classpath
-plugins/layouts/target
+plugins/utils/.project
+plugins/utils/.classpath
+plugins/utils/target

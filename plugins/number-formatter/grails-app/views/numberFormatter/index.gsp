@@ -31,6 +31,9 @@
         <g:if test="${answer}">
             <g:textField name="myField" value="${answer}"/>
         </g:if>
+        <div>
+            ${flash.error}
+        </div>
     </g:form>
 </main>
 <g:applyLayout name="footer"/>

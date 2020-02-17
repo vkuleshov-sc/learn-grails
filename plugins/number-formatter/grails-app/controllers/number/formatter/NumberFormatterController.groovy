@@ -1,6 +1,6 @@
 package number.formatter
 
-import utils.utils.NumberFormatter
+import nf.utils.NumberFormatter
 
 class NumberFormatterController {
     def index() {
@@ -9,8 +9,14 @@ class NumberFormatterController {
 
     def getValue() {
         Locale locale = new Locale(session.lang ?: 'en')
-        double value = NumberFormatter.convert(params.value, locale)
-        render(view: 'index', model: [answer: NumberFormatter.format(value, locale) ?: 'Invalid value'])
+        def validateRes = NumberFormatter.validate(params.value, locale)
+        if (validateRes.result) {
+            double value = NumberFormatter.convert(params.value, locale)
+            render(view: 'index', model: [answer: NumberFormatter.format(value, locale)])
+        } else {
+            flash.error = validateRes.message
+            render(view: 'index')
+        }
     }
 }
 

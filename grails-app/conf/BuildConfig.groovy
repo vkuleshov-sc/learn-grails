@@ -29,12 +29,8 @@ grails.project.fork = [
 grails.plugin.location."models" = "plugins/models"
 grails.plugin.location."login" = "plugins/login"
 grails.plugin.location."search" = "plugins/search"
-grails.plugin.location."user-crud" = "plugins/user-crud"
 grails.plugin.location."number-formatter"="plugins/number-formatter"
-grails.plugin.location."pokemon-crud"="plugins/pokemon-crud"
-grails.plugin.location."locale"="plugins/locale"
-grails.plugin.location."pokemon-json-api"="plugins/pokemon-json-api"
-grails.plugin.location."layouts"="plugins/layouts"
+grails.plugin.location."utils"="plugins/utils"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {

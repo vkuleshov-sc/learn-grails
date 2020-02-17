@@ -6,7 +6,7 @@ class UserCounterJob {
     def searchService
 
     static triggers = {
-        simple repeatInterval: 60001,  startDelay:10000
+        simple repeatInterval: 300000,  startDelay:10000
     }
 
     def execute() {
